@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="login">
+        <h1>Credit simulator</h1>
+
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="Credit_History" placeholder="Credit History" required="required">
+            <input type="text" name="Married" placeholder="Married" required="required">
+            <input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" required="required">
+
+            <button type="submit" class="btn btn-dark">predict</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text }}
+    </div>
+
+    <div class="indication">
+        <p>For the 2 first inputs, please put 1 or 0</p>
+        <ul>
+            <li>Credit History : 1 = yes / 0 = no</li>
+            <li>Married : 1 = Yes / 0 = No</li>
+            <li>Answer : 1 = accepted  / 0 = refused</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
